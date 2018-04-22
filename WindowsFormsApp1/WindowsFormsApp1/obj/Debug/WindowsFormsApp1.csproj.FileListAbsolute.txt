@@ -12,3 +12,6 @@ C:\Users\yunka\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsF
 C:\Users\yunka\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\WindowsFormsApp1.application
 C:\Users\yunka\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.exe.manifest
 C:\Users\yunka\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.application
+C:\Users\yunka\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\MySql.Data.dll
+C:\Users\yunka\source\repos\WindowsFormsApp1\WindowsFormsApp1\bin\Debug\MySql.Data.xml
+C:\Users\yunka\source\repos\WindowsFormsApp1\WindowsFormsApp1\obj\Debug\WindowsFormsApp1.csproj.CopyComplete

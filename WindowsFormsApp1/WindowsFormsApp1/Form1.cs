@@ -1,7 +1,9 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.SqlClient;
 using System.Drawing;
 using System.Drawing.Printing;
 using System.Linq;
@@ -32,6 +34,55 @@ namespace WindowsFormsApp1
             System.Drawing.Printing.PrinterSettings newSettings = new System.Drawing.Printing.PrinterSettings();
             printer.PrinterSettings.PrinterName = "HP209535 (HP Photosmart 7510 series)";
             printer.Print();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn;
+            String connString;
+            connString = "SERVER=162.241.216.125;PORT=3306;DATABASE=cmleduco_kidswearinventory;UID=cmleduco_cozy;PASSWORD=cozycradles";
+            
+            conn = new MySqlConnection();
+            conn.ConnectionString = connString;
+            conn.Open();
+            string query = "SELECT first_name FROM account WHERE id='1'";
+
+            using (var command = new MySqlCommand(query, conn))
+            {
+                
+                var reader = command.ExecuteReader();
+
+                if (reader.HasRows)
+                {
+                    while (reader.Read())
+                        topmargin.Text = reader.GetString(0);
+                }
+                
+
+                reader.Close();
+                conn.Close();
+            }
+
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            MySqlConnection conn;
+            String connString;
+            connString = "SERVER=162.241.216.125;PORT=3306;DATABASE=cmleduco_kidswearinventory;UID=cmleduco_cozy;PASSWORD=cozycradles";
+
+            conn = new MySqlConnection();
+            conn.ConnectionString = connString;
+            conn.Open();
+            string query = "INSERT account (first_name) VALUES ('3')";
+
+            using (var command = new MySqlCommand(query, conn))
+            {
+                command.ExecuteNonQuery();
+                
+                conn.Close();
+                topmargin.Text = "Insertion Finished";
+            }
         }
     }
 }
