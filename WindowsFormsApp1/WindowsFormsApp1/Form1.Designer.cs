@@ -48,7 +48,7 @@
             // 
             this.topmargin.Location = new System.Drawing.Point(480, 290);
             this.topmargin.Name = "topmargin";
-            this.topmargin.Size = new System.Drawing.Size(100, 20);
+            this.topmargin.Size = new System.Drawing.Size(207, 20);
             this.topmargin.TabIndex = 1;
             // 
             // button2

@@ -55,7 +55,16 @@ namespace WindowsFormsApp1
                 if (reader.HasRows)
                 {
                     while (reader.Read())
-                        topmargin.Text = reader.GetString(0);
+                    {
+                        //topmargin.Text = reader.GetString(0);
+                        PrintDocument printer = new PrintDocument();
+                        printer.PrinterFont = new Font("Verdana", 18);
+
+                        printer.TextToPrint = reader.GetString(0);
+                        System.Drawing.Printing.PrinterSettings newSettings = new System.Drawing.Printing.PrinterSettings();
+                        printer.PrinterSettings.PrinterName = "HP209535 (HP Photosmart 7510 series)";
+                        printer.Print();
+                    }
                 }
                 
 
@@ -74,14 +83,12 @@ namespace WindowsFormsApp1
             conn = new MySqlConnection();
             conn.ConnectionString = connString;
             conn.Open();
-            string query = "INSERT account (first_name) VALUES ('3')";
+            string query = "INSERT account (first_name) VALUES ('test')";
 
             using (var command = new MySqlCommand(query, conn))
             {
-                command.ExecuteNonQuery();
-                
+                topmargin.Text = "Insertion Finished,Affected Rows "+ command.ExecuteNonQuery();
                 conn.Close();
-                topmargin.Text = "Insertion Finished";
             }
         }
     }
